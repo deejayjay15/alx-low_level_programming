@@ -1,5 +1,3 @@
-nes (42 sloc)  637 Bytes
-
 #include "main.h"
 /**
  * times_table - prints out the 9 times table
