@@ -1,34 +1,43 @@
 #include "main.h"
+
 /**
- * cap_string - converts first byte of a string to uppercase
- *
- * @s: string to be converted
- *
- * Return: c(The string converted to uppercase)
- *
+ * *cap_string - capitalize words
+ * @str: pointer
+ * Return: capitalzied string
  */
 
-char *cap_string(char *s)
+char *cap_string(char *str)
 {
-	int i;/*Iterator*/
+	char sep[] = ",\t;\n; .!?\"(){}";
+	int flag, i, ii;
 
-	i = 0;
-
-	if (s[i] <= 'z' && s[i] >= 'a')
-		s[i] = s[i] - 'a' + 'A';
-
-	i++;
-
-	while (s[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((s[i] >= 'a' && s[i] <= 'z') &&
-		    (s[i - 1] == ',' || s[i - 1] == ';' || s[i - 1] == '.' ||
-		          s[i - 1] == '!' || s[i - 1] == '?' || s[i - 1] == '"' ||
-		     s[i - 1] == '(' || s[i - 1] == ')' || s[i - 1] == '{' ||
-		     s[i - 1] == '}' || s[i - 1] == ' ' || s[i - 1] == '\t'
-		     || s[i - 1] == '\n'))
-			s[i] = s[i] - 'a' + 'A';
-		i++;
+		flag = 0;
+
+		if (i == 0)
+		{
+			flag = 1;
+		}
+		else
+		{
+			for (ii = 0; sep[ii] != '\0'; ii++)
+			{
+				if (str[i - 1] == sep[ii])
+				{
+					flag = 1;
+					break;
+				}
+			}
+		}
+
+		if (flag == 1)
+		{
+			if (str[i] <= 'z' && str[i] >= 'a')
+			{
+				str[i] -= ('a' - 'A');
+			}
+		}
 	}
-	return (s);
+	return (str);
 }
