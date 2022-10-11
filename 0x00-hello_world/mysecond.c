@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(void)
+{
+	char f,m,l;
+	int age;
+	
+	printf("Enter initials followed by Age: ");
+	scanf(" %c %c %c %d", &f, &m, &l, &age);
+	printf("my initials are: %c%C%c and my age %d\n",f,m,l,age);
+	return(0);
+}
