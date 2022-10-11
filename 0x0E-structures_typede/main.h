@@ -1,24 +1,15 @@
-#ifndef DOG_H
-#define DOG_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
-/**
- * struct dog - structure definition of a dog
- * @name: character string
- * @age: integer
- * @owner: character string
- */
+int _putchar(char c);
 
-typedef struct dog
-{
-	char *name;
-	float age;
-	char *owner;
-} dog_t;
+void *malloc_checked(unsigned int b);
 
-void init_dog(struct dog *d, char *name, float age, char *owner);
-void print_dog(struct dog *d);
-dog_t *new_dog(char *name, float age, char *owner);
-void free_dog(dog_t *d);
-char *_strcpy(char *dest, char *src);
-int _strlen(char *s);
+char *string_nconcat(char *s1, char *s2, unsigned int n);
+
+void *_calloc(unsigned int nmemb, unsigned int size);
+
+int *array_range(int min, int max);
+
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 #endif
